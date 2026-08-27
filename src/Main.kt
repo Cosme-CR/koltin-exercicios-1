@@ -5,7 +5,25 @@ import java.util.Scanner
 fun main() {
 
 
-    Menu()
+   Menu()
+
+
+    val numero = (1..5).toList()
+
+
+    //filtrar
+    val pares = numero.filter { it % 2 == 0 }
+    println(pares)
+
+
+    //processar/modifica
+    val dobro = numero.map { it * 2 }
+
+    println(numero)
+    println(dobro)
+
+    val soma = numero.reduce { acumulador, numero -> acumulador + numero }
+    println(soma)
 
 
 }
@@ -13,7 +31,7 @@ fun main() {
 fun Menu (){
     var sair = true
 
-    val vetornumeros = intArrayOf(1, 2, 3, 4, 5, 50, 60)
+    val vetornumeros = intArrayOf(-4,-90,0,1, 2, 3, 4, 5, 50, 60,99)
 
     while (sair) {
         println("MENU PRINCIPAL ESCOLA O EXENCICIO QUE DESEJA CORRIGIR")
@@ -96,10 +114,11 @@ fun ValidaCrianca (){
     var numero =  readln().toInt()
 
     when (numero) {
+
         in 0..11 -> println("crianca")
         in 12..17 -> println("adolecente")
         in 18..59 -> println("adulto")
-        else -> println("idoso")
+        else -> if (numero >0 ){println("idoso")}else{println("erro")}
     }
 }
 
